@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: 140px 400px auto 200px;
+        grid-template-rows: 250px 400px;
+        grid-template-areas: 
+            "lsidebar chart chart chart"
+            "lsidebar donut worldmap treemap";
+        column-gap: 1px;
+        row-gap: 1px;
+    }
+    .lsidebar {
+        background-color: grey;
+        grid-area: lsidebar;
+    }
+    .chart {
+        grid-area: chart;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+    .donut {
+        grid-area: donut;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+    .worldmap {
+        grid-area: worldmap;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+    .treemap {
+        grid-area: treemap;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div id="lsidebar" class="lsidebar"><img src="DrawdownSolutions.png" width="140px"></div>
+  <div id="chart" class="chart"><img src="chart.svg"></div>
+  <div class="donut">
+      <span style="font-family:sans-serif;padding-left:1em;">Solutions by Sector</span>
+      <div id="donut"></div>
+  </div>
+  <div id="worldmap" class="worldmap"></div>
+  <div id="treemap" class="treemap"></div>
+</div>
+
+<script type="text/javascript">
+  var spec = "donut.json";
+  vegaEmbed('#donut', spec, {actions: false}).then(function(result) {}).catch(console.error);
+  var spec = "worldmap.json";
+  vegaEmbed('#worldmap', spec, {actions: false}).then(function(result) {}).catch(console.error);
+  var spec = "treemap.json";
+  vegaEmbed('#treemap', spec, {actions: false}).then(function(result) {}).catch(console.error);
+</script>
+</body>
+</html>
