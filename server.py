@@ -11,6 +11,7 @@ class RenderMain(tornado.web.RequestHandler):
 
 def main():
     """Start the tornado application."""
+    tornado.options.parse_command_line()
     app = tornado.web.Application([
         ('/', RenderMain),
         (r'/(.*\.(json|png|svg))', tornado.web.StaticFileHandler, {'path': './'}),
