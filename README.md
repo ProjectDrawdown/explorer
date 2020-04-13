@@ -1,6 +1,3 @@
-![status](https://github.com/ProjectDrawdown/solutions/workflows/Drawdown%20Solutions%20Python%20application/badge.svg)
-[![codecov](https://codecov.io/gh/ProjectDrawdown/solutions/branch/master/graph/badge.svg)](https://codecov.io/gh/ProjectDrawdown/solutions)
-
 # Project Drawdown Solution Explorer
 [Project Drawdown](https://www.drawdown.org/) is the most comprehensive plan yet published for how to solve Global Warming. Project Drawdown entered the climate conversation with the [publication of the 2017 book](https://www.drawdown.org/the-book), and continues its mission to inspire and communicate solutions.
 
