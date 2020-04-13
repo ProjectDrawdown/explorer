@@ -16,12 +16,16 @@ $ git clone https://github.com/ProjectDrawdown/explorer.git
 $ cd explorer
 ```
 
-We recommend using pipenv for a virtual environment:
+We recommend using pipenv for a virtual environment, then start the Tornado web server:
 
 ```sh
 $ pipenv shell
-(explorer) $
+(explorer) $ python server.py
 ```
+
+In a browser, go to http://localhost:8888/
+
+![Screenshot](screenshot.png)
 
 ---
 
