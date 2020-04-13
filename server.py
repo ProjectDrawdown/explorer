@@ -1,3 +1,4 @@
+import os
 import tornado.ioloop
 import tornado.httpserver
 import tornado.options
@@ -12,9 +13,10 @@ class RenderMain(tornado.web.RequestHandler):
 def main():
     """Start the tornado application."""
     tornado.options.parse_command_line()
+    root = os.getenv('JUPYTERHUB_SERVICE_PREFIX', default='/')
     app = tornado.web.Application([
-        ('/', RenderMain),
-        (r'/(.*\.(json|png|svg))', tornado.web.StaticFileHandler, {'path': './'}),
+        (root, RenderMain),
+        (root + r'(.*\.(json|png|svg))', tornado.web.StaticFileHandler, {'path': './'}),
     ])
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(tornado.options.options.port)
