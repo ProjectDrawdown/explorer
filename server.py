@@ -7,6 +7,7 @@ import tornado.options
 import tornado.web
 
 tornado.options.define('port', default=8888, help='port to listen on')
+tornado.options.define('path', default='./', help='filesystem path')
 
 class RenderMain(tornado.web.RequestHandler):
     def get(self):
@@ -23,7 +24,8 @@ def main():
 
     app = tornado.web.Application([
         (root, RenderMain),
-        (root + r'(.*\.(json|png|svg))', tornado.web.StaticFileHandler, {'path': './'}),
+        (root + r'(.*\.(json|png|svg))', tornado.web.StaticFileHandler,
+            {'path': tornado.options.options.path}),
     ])
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(tornado.options.options.port)
