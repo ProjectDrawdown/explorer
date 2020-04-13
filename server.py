@@ -1,4 +1,6 @@
 import os
+import urllib
+
 import tornado.ioloop
 import tornado.httpserver
 import tornado.options
@@ -14,6 +16,11 @@ def main():
     """Start the tornado application."""
     tornado.options.parse_command_line()
     root = os.getenv('JUPYTERHUB_SERVICE_PREFIX', default='/')
+    url = os.getenv('JUPYTERHUB_SERVICE_URL', default=None)
+    if url is not None:
+        u = urllib.parse.urlparse(url)
+        tornado.options.options.port = u.port
+
     app = tornado.web.Application([
         (root, RenderMain),
         (root + r'(.*\.(json|png|svg))', tornado.web.StaticFileHandler, {'path': './'}),
