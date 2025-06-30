@@ -1,3 +1,5 @@
+### This repo is no longer being used or maintained and has been archived. Please visit [drawdown.org](https://www.drawdown.org/) for more information on our work.
+
 # Project Drawdown Solution Explorer
 [Project Drawdown](https://www.drawdown.org/) is the most comprehensive plan yet published for how to solve Global Warming. Project Drawdown entered the climate conversation with the [publication of the 2017 book](https://www.drawdown.org/the-book), and continues its mission to inspire and communicate solutions.
 
